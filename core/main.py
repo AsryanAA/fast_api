@@ -5,11 +5,14 @@ from fastapi import FastAPI
 from api import router as api_router
 from client import postgresql_client
 from config.config import settings
+from models import BaseModel
 
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     # startup
+    # async with postgresql_client.engine.begin() as pg_client:
+        # await pg_client.run_sync(BaseModel.metadata.drop_all)
     yield
     # shutdown
     print('dispose engine')
