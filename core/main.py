@@ -5,6 +5,7 @@ from fastapi import FastAPI
 from api import router as api_router
 from client import postgresql_client
 from config.config import settings
+from fastapi.responses import ORJSONResponse
 # from models import BaseModel
 
 
@@ -19,6 +20,7 @@ async def lifespan(app: FastAPI):
     await postgresql_client.dispose()
 
 main_app = FastAPI(
+    default_response_class=ORJSONResponse,
     lifespan=lifespan
 )
 main_app.include_router(api_router, prefix=settings.api_prefix)
