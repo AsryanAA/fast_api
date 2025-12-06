@@ -1,0 +1,14 @@
+volumes:
+  postgres_data:
+
+services:
+  python-db-postgres:
+    image: postgres:16.1
+    environment:
+      POSTGRES_DB: python_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5442:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
