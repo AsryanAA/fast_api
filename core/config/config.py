@@ -6,7 +6,7 @@ from config.http_server import HTTPServer
 
 class Settings(BaseSettings):
     model_config = SettingsConfigDict(
-        env_file='.env',
+        env_file=('.env.example', '.env'), # каждый последующий перегружает предыдущий
         case_sensitive=False,
         env_nested_delimiter='__',
         env_prefix='APP_CONFIG__'
@@ -18,3 +18,4 @@ class Settings(BaseSettings):
 
 
 settings = Settings()
+print(settings)
