@@ -18,5 +18,5 @@ pip freeze -> requirements.txt
 
 ```shell
 
-poetry add fastapi "uvicorn[standard]" "pydantic[email]" pydantic-settings
+poetry add fastapi 'uvicorn[standard]' 'pydantic[email]' 'sqlalchemy[asyncio]' pydantic-settings asyncpg
 ```
